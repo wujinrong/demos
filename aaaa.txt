@@ -10,6 +10,11 @@ git init
 
 git status  --查看状态
 
+生成秘钥和公钥
+ssh-keygen -t rsa -C "18868434799@163.com"
+
+在GitHub中把公钥粘贴进去
+
 添加一个新的远程仓库 add后面跟的是你起的仓库名称
 git remote add origin   https://github.com/wujinrong/demos.git
 
