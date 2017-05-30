@@ -1,2 +1,20 @@
-我是第一次提交
-bbbbbbbb
+git init
+
+每次新增或者修改文件
+-- git add 文件名               --暂存区
+-- git commit -m '提交的注释'   --工作区
+
+第一次本地使用git 需设置全局的用户信息
+ git config --global user.email "you@example.com"
+ git config --global user.name "Your Name"
+
+git status  --查看状态
+
+添加一个新的远程仓库 add后面跟的是你起的仓库名称
+git remote add origin   https://github.com/wujinrong/demos.git
+
+将https协议修改成git协议 GitHub用户名 和仓库地址
+git remote set-url origin git@github.com:wujinrong/demos.git
+
+
+
