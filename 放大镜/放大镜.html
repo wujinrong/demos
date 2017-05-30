@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+			*{margin:0; padding:0;}
+			.small{
+				width:200px;
+				height:200px;
+				border:1px solid #ccc;
+				margin:100px;
+				position: relative;
+			}
+			.fallow{
+				width:100px;
+				height:100px;
+				background-color:rgba(255, 205, 255, 0.4);
+				position: absolute;
+				top:0;
+				left:0;
+				cursor: move;
+				display:none;
+			}
+			.small img{
+				width:100%;
+			}
+			.big{
+				width:250px;
+				height:250px;
+				border:1px solid #ccc;
+				background: url(img/front_default.png) no-repeat;
+				position: absolute;
+				left:350px;
+				top:100px;
+				display:none;
+			}
+        </style>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <script type="text/javascript">
+        $(function() {
+        	$('.small').hover(function() {
+        		$('.fallow,.big').toggle();
+        	});
+        	var X=0;
+			var Y=0;
+			var bigX=0;
+			var bigY=0;
+			$('.small').mousemove(function(event) {
+				X=event.pageX-$('.small').offset().left-$('.fallow').width()/2;
+				Y=event.pageY-$('.small').offset().top-$('.fallow').height()/2;
+				var maxX=$('.small').width()-$('.fallow').width();
+				var maxY=$('.small').height()-$('.fallow').height();
+				//X不能小于0、x不能大于100；y不能小于0，不能大于100
+				if(X<0){X=0}
+				if(Y<0){Y=0}
+				if(X>maxX){X=maxX}
+				if(Y>maxY){Y=maxY}
+				$('.fallow').css({'left':X,'top':Y});
+			
+
+				bigX=-500*X/200;
+				bigY=-500*Y/200;
+				$('.big').css('background-position',bigX+'px '+bigY+'px');
+			});
+        });
+        </script>
+    </head>
+    <body>
+    	<div class="small">
+    		<img src="img/front_default.png">
+    		<div class="fallow"></div>
+    	</div>
+    	<div class="big"></div>
+    </body>
+</html>
